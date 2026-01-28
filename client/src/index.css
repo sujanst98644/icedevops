@@ -1,0 +1,333 @@
+/* ================= GLOBAL RESET ================= */
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%; /* 16px */
+}
+
+/* ================= ROOT VARIABLES ================= */
+
+:root {
+  /* Primary */
+  --primary-50: #e0fcff;
+  --primary-100: #bef8fd;
+  --primary-200: #87eaf2;
+  --primary-300: #54d1db;
+  --primary-400: #38bec9;
+  --primary-500: #2cb1bc;
+  --primary-600: #14919b;
+  --primary-700: #0e7c86;
+  --primary-800: #0a6c74;
+  --primary-900: #044e54;
+
+  /* Grey */
+  --grey-50: #f8fafc;
+  --grey-100: #f1f5f9;
+  --grey-200: #e2e8f0;
+  --grey-300: #cbd5e1;
+  --grey-400: #94a3b8;
+  --grey-500: #64748b;
+  --grey-600: #475569;
+  --grey-700: #334155;
+  --grey-800: #1e293b;
+  --grey-900: #0f172a;
+
+  /* Base */
+  --black: #222;
+  --white: #fff;
+
+  /* Status */
+  --red-light: #f8d7da;
+  --red-dark: #842029;
+  --green-light: #d1e7dd;
+  --green-dark: #0f5132;
+
+  /* Typography */
+  --small-text: 0.875rem;
+  --extra-small-text: 0.7rem;
+  --letter-spacing: 0.5px;
+
+  /* Layout */
+  --border-radius: 0.25rem;
+  --transition: 0.1s ease-in-out;
+  --max-width: 1120px;
+  --fixed-width: 600px;
+  --fluid-width: 90vw;
+  --nav-height: 6rem;
+
+  /* Shadows */
+  --shadow-1: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-2: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-3: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-4: 0 20px 25px rgba(0, 0, 0, 0.15);
+
+  /* Light mode */
+  --background-color: var(--grey-50);
+  --background-secondary-color: var(--white);
+  --text-color: var(--grey-900);
+  --text-secondary-color: var(--grey-600);
+
+  /* Dark mode */
+  --dark-mode-bg-color: #333;
+  --dark-mode-bg-secondary-color: #3f3f3f;
+  --dark-mode-text-color: #f0f0f0;
+  --dark-mode-text-secondary-color: var(--grey-300);
+}
+
+/* ================= DARK MODE ================= */
+
+.dark-theme {
+  --background-color: var(--dark-mode-bg-color);
+  --background-secondary-color: var(--dark-mode-bg-secondary-color);
+  --text-color: var(--dark-mode-text-color);
+  --text-secondary-color: var(--dark-mode-text-secondary-color);
+}
+
+/* ================= BASE BODY ================= */
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background: var(--background-color);
+  color: var(--text-color);
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* ================= TYPOGRAPHY (TAG ONLY) ================= */
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 500;
+  letter-spacing: var(--letter-spacing);
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+  color: var(--text-color);
+}
+
+h1 {
+  font-size: 63px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 21px;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+h5 {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: black;
+  margin-bottom: 1rem;
+}
+
+small {
+  font-size: var(--small-text);
+  color: var(--text-secondary-color);
+}
+
+/* ================= LINKS & LISTS ================= */
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: red;
+}
+button{
+  background: rgba(255, 255, 255, 0.2);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+button:hover{
+  color: white;
+  background-color: #D72323;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ================= IMAGES ================= */
+
+img,
+.img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* ================= BUTTONS ================= */
+
+.btn {
+  cursor: pointer;
+  background: var(--primary-500);
+  color: var(--white);
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.5rem 1rem;
+  letter-spacing: var(--letter-spacing);
+  transition: var(--transition);
+  box-shadow: var(--shadow-1);
+}
+
+.btn:hover {
+  background: var(--primary-700);
+  box-shadow: var(--shadow-3);
+}
+
+.btn-hipster {
+  background: var(--primary-200);
+  color: var(--primary-700);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.danger-btn {
+  background: var(--red-light);
+  color: var(--red-dark);
+}
+
+.danger-btn:hover {
+  background: var(--red-dark);
+  color: var(--white);
+}
+
+/* ================= ALERTS ================= */
+
+.alert {
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 1rem;
+}
+
+.alert-danger {
+  background: var(--red-light);
+  color: var(--red-dark);
+}
+
+.alert-success {
+  background: var(--green-light);
+  color: var(--green-dark);
+}
+
+/* ================= FORMS ================= */
+
+.form {
+  width: 90vw;
+  max-width: var(--fixed-width);
+  background: var(--background-secondary-color);
+  padding: 2rem;
+  margin: 3rem auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-2);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: var(--small-text);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  height: 36px;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--grey-300);
+  background: var(--background-color);
+  color: var(--text-color);
+}
+
+.form-textarea {
+  height: 7rem;
+}
+
+.form-row {
+  margin-bottom: 1rem;
+}
+
+::placeholder {
+  color: var(--grey-400);
+}
+
+/* ================= LOADER ================= */
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  width: 4rem;
+  height: 4rem;
+  border: 4px solid var(--grey-300);
+  border-top-color: var(--primary-500);
+  border-radius: 50%;
+  animation: spinner 0.6s linear infinite;
+}
+
+/* ================= LAYOUT ================= */
+
+.container {
+  width: var(--fluid-width);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* ================= BADGES ================= */
+
+.pending {
+  background: #fef3c7;
+  color: #f59e0b;
+}
+
+.interview {
+  background: #e0e8f9;
+  color: #647acb;
+}
+
+.declined {
+  background: #ffeeee;
+  color: #d66a6a;
+}
