@@ -1,0 +1,23 @@
+# Ignore the Git directory and associated files
+.git
+.gitignore
+
+# Ignore build artifacts and cache files
+**/node_modules
+**/dist
+build/
+*.pyc
+__pycache__
+
+# Ignore environment files and logs
+.env
+*.log
+
+# Exclude all markdown files except the main README.md
+*.md
+!README.md
+
+# Ignore Docker-specific development files (optional)
+Dockerfile
+docker-compose*.yml
+.dockerignore
