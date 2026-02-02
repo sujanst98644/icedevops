@@ -1,15 +1,27 @@
 import { useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+
 
 const Flavours = () => {
   const [items, setItems] = useState([]);
   const [selectedFlavours, setSelectedFlavours] = useState([]);
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/flavours")
-      .then((res) => res.json())
-      .then((json) => setItems(json.data || []))
-      .catch(console.error);
-  }, []);
+  fetch("http://localhost:8080/api/flavours")
+    .then((res) => res.json())
+    .then((json) => {
+      const data = json.data || [];
+      setItems(data);
+
+      const flavourFromURL = searchParams.get("flavour");
+      if (flavourFromURL) {
+        setSelectedFlavours([flavourFromURL]);
+      }
+    })
+    .catch(console.error);
+}, [searchParams]);
+
 
   // Get unique flavours dynamically
   const flavours = useMemo(() => {
@@ -33,10 +45,10 @@ const Flavours = () => {
   };
 
   return (
-    <div className="py-28 flex justify-center w-full bg-white">
-      <div className="gap-8 max-w-[1140px] flex ">
+    <div className="p-28  w-full bg-white">
+      <div className="gap-8 max-w-[1140px] flex">
         {/* Sidebar Filter */}
-      <aside className="w-64 shrink-0 border rounded-lg p-6 h-fit sticky top-24">
+      <aside className="w-64 shrink-0 border rounded-lg p-6 h-fit sticky ">
         <h2 className="font-semibold text-lg mb-4">Filter by Flavour</h2>
 
         {flavours.length === 0 && (

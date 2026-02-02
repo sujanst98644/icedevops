@@ -8,7 +8,7 @@ import { TfiYoutube } from "react-icons/tfi";
 
 const Footer = () => {
   return (
-    <footer className="text-black">
+    <footer className="text-black bg-[#F5F7FA]">
       <div className="max-w-[1140px] mx-auto px-6 py-10 space-y-5">
 
         {/* Brand */}
