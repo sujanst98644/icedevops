@@ -26,8 +26,8 @@ jobs:
           context: ./server
           push: true
           tags: |
-            yourname/mern-server:latest
-            yourname/mern-server:${{ github.sha }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/mern-server:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/mern-server:${{ github.sha }}
 
       - name: Build and push client image
         uses: docker/build-push-action@v5
