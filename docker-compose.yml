@@ -18,9 +18,12 @@ services:
     container_name: server-container
     ports:
       - "8080:8080"
-    env_file:
-      - ./server/.env
-
+    environment:
+      - MONGO_URI
+      - JWT_SECRET
+      - CLOUDINARY_CLOUD_NAME
+      - CLOUDINARY_API_KEY
+      - CLOUDINARY_API_SECRET
     depends_on:
       - database
     networks:
