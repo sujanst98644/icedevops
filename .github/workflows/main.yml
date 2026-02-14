@@ -35,8 +35,8 @@ jobs:
           context: ./client
           push: true
           tags: |
-            yourname/mern-client:latest
-            yourname/mern-client:${{ github.sha }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/mern-client:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/mern-client:${{ github.sha }}
 
   deploy:
     needs: build-and-push
