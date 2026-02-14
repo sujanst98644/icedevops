@@ -24,23 +24,8 @@ services:
       - CLOUDINARY_CLOUD_NAME
       - CLOUDINARY_API_KEY
       - CLOUDINARY_API_SECRET
-    depends_on:
-      - database
     networks:
       - mern-network
-
-  database:
-    image: mongo:latest
-    container_name: mongodb-container
-    volumes:
-      - mongodb-data:/data/db
-    ports:
-      - "27017:27017"
-    networks:
-      - mern-network
-
-volumes:
-  mongodb-data:
 
 networks:
   mern-network:
