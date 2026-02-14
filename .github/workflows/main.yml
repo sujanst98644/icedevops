@@ -51,5 +51,10 @@ jobs:
           key: ${{ secrets.AZURE_SSH_KEY }}
           script: |
             cd ~/app
-            docker compose pull
+            git pull origin main
+            MONGO_URI=${{ secrets.MONGO_URI }} \
+            JWT_SECRET=${{ secrets.JWT_SECRET }} \
+            CLOUDINARY_CLOUD_NAME=${{ secrets.CLOUDINARY_CLOUD_NAME }} \
+            CLOUDINARY_API_KEY=${{ secrets.CLOUDINARY_API_KEY }} \
+            CLOUDINARY_API_SECRET=${{ secrets.CLOUDINARY_API_SECRET }} \
             docker compose up -d --remove-orphans
